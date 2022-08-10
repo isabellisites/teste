@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/mobile.css">
+    <title>Curso Pythonnow</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+
+
+// Smooth Scrolling
+$("#navbar a, .btn").on("click", function (event) {
+    if (this.hash !== "") {
+        event.preventDefault();
+
+        const hash = this.hash;
+
+        $("html, body").animate(
+            {
+                scrollTop: $(hash).offset().top - 100
+            },
+            800
+        );
+    }
+});
+
+// Sticky menu background
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 150) {
+        document.querySelector("#navbar").style.opacity = 0.9;
+    } else {
+        document.querySelector("#navbar").style.opacity = 1;
+    }
+});
+
+
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 60px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background: #111;
+    color: #eee;
+    border-radius: 5px;
+    transition: background 500ms ease;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #000;
+}
+
+.headline {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* Navbar */
+#navbar {
+    width: 100%;
+    background: transparent;
+    color: #eee;
+    height: 80px;
+    position: fixed;
+}
+
+#navbar-container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+#navbar-items {
+    display: flex;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+#navbar-items li {
+    padding: 10px;
+    border-radius: 20px;
+}
+#navbar-items li:hover {
+    background-color:#a31f44;    
+    transition: 0.7s;
+}
+/* Showcase */
+#showcase {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    background: url('/img/showcase.png') no-repeat center center/cover;
+
+    /* Overlay */
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: color;
+}
+
+#showcase-container {
+    text-align: center;
+}
+
+#showcase-container h2 {
+    font-size: 2.5rem;
+}
+
+#showcase-container p {
+    font-size: 1.2rem;
+    padding: 7px 0;
+}
+
+/* Clients */
+#clients {
+    width: 100%;
+    background:radial-gradient(#a7c8f2,#449fa6) ;
+    color: #111;
+    padding: 50px;
+}
+
+#clients-container {
+    text-align: center;
+    padding: 15px;
+}
+#clients-container p{
+    font-size: 1.2em;
+}
+
+.client {
+    display: inline-block;
+    width: 25%;
+}
+
+/* About */
+#features {
+    width: 100%;
+    background-image:linear-gradient(to right, #352c82,#2e121c);
+    color: #eee;
+    padding: 50px;
+}
+
+#features-container {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 50px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    background: #04010a;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 15px 15px 25px rgba(0,0,0,0.7); 
+}
+.feature:hover {   
+    color: #6cc6cc;
+    font-size: 1.05em;
+    transition: 0.5s;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Product */
+#product {
+    width: 100%;
+    padding: 50px;
+    
+}
+#items .item:nth-child(2) {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+#items .item:nth-child(3) {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+#items .item:nth-child(4) {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+#items .item:nth-child(1) {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+.iphone-x{
+    border-radius: 10px;
+}
+
+#product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#items {
+    width: 650px;
+}
+.item p{
+    margin: 10px;
+}
+#items .item {
+    display: flex;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+/* Testimonials */
+.testimonial {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    background: #449fa6;
+    box-shadow: 15px 15px 25px rgba(0,0,0,0.7); 
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+#testimonials {
+    width: 100%;
+    background-image:linear-gradient(to right, #352c82,#2e121c);
+    color: #eee;
+    padding: 50px;
+}
+
+#testimonials-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.testimonial .testimonial-image {
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+/* Gallery */
+/* #gallery {
+    width: 90%;
+    margin: auto;
+    padding: 50px;
+}
+
+#gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    justify-items: center;
+}
+
+.gallery-image {
+    display: inline-block;
+    width: 540px;
+    height: 360px;
+    border-radius: 5px;
+} */
+
+/* Footer */
+#footer {
+    background: rgb(0, 0, 0);
+    color: #eee;
+    padding: 30px;
+    text-align: center;
+}
+
+
+
+
+
+
+#navbar {
+    height: 180px;
+}
+
+#navbar-container {
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+#navbar-items {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+#navbar-items li:nth-child(2) {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+/* Showcase */
+#showcase-container {
+    padding: 40px;
+}
+
+/* Clients */
+#clients-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.client {
+    width: 50%;
+}
+
+/* Features */
+#features-container {
+    grid-template-columns: 1fr;
+}
+
+#features-container .feature:nth-child(2) {
+    margin: 15px 0;
+}
+
+/* Product */
+#product-container {
+    flex-direction: column;
+}
+
+#items {
+    width: 90%;
+}
+
+.item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Testimonials */
+.testimonial {
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Gallery */
+
+#gallery-container {
+    grid-template-columns: 1fr;
+}
+
+.gallery-image {
+    width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="navbar-container">
+            <h1 class="logo">Pythonnow</h1>
+            <ul id="navbar-items">
+                <li><a href="#showcase">Início</a></li>
+                <li><a href="#features">aulas</a></li>
+                <li><a href="#testimonials">Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="showcase">
+        <div id="showcase-container">
+            <h2>Phytonnow</h2>
+            <p>È iniciante? Clique aqui e vire um mestre da programação!</p>
+            <a href="#ha" class="btn">Saiba mais</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="clients">
+        <div class="headline" id="ha">O que é Python?</div>
+        <div id="clients-container">
+            <p>
+                Python é uma linguagem de programação de alto nível, ou seja, com sintaxe mais simplificada e próxima da linguagem humana, utilizada nas mais diversas aplicações, como desktop, web, servidores e ciência de dados.
+                <br><br>
+                O Python foi lançado no início da década de 90 pelo programador e matemático holandês Guido Van Rossum. A linguagem foi projetada para dar ênfase no trabalho do desenvolvedor, facilitando a escrita de um código limpo, simples e legível, tanto em aplicações menores quanto em programas mais complexos.
+
+A linguagem oferece recursos como tipagem dinâmica e forte (tipo de dado do valor deve ser do mesmo tipo da variável), orientação a objetos, multiparadigmas (programação funcional e imperativa), além de recursos poderosos em biblioteca padrão e via módulos e frameworks desenvolvidos pela comunidade. Seu código é aberto e a utilização é gratuita, rodando em praticamente qualquer sistema operacional.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="headline">Aulas</div>
+        <div id="features-container">
+            <div class="feature">
+                <a href="#">
+                    <span class="feature-title">Python nível básico</span>
+                    <br>
+                    <p>Se você nunca programou antes esse é o nivel certo pra você! Vamos aprender desde como baixar Python e criptografias básicas que são essenciais para a linguagem.</p></a>
+            </div>
+            <div class="feature">
+                <a href="">
+                    <span class="feature-title">Python nível médio</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi laboriosam illo, doloremque
+                        placeat et.</p></a>
+            </div>
+            <div class="feature">
+               <a href=""> 
+                <span class="feature-title">Python nível avançado</span>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi laboriosam illo, doloremque
+                    placeat et.</p></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="product">
+        <div class="headline">Por que aprender Python?</div>
+        <div id="product-container">
+            <img src="/img/iphone-x.jpg" alt="" class="iphone-x">
+            <div id="items">
+                <div class="item">
+                    
+                    <p>Python é uma linguagem que requer menos código para concluir tarefas básicas quando comparada a outros padrões de programação.</p>
+                </div>
+                <div class="item">
+                    
+                    <p>A modularização e a capacidade de empacotamento são outras duas vantagens da linguagem.</p>
+                </div>
+                <div class="item">
+                    
+                    <p>Programar em Python abre portas no mercado de trabalho.
+
+                        Um levantamento recente mostra Python em primeiro lugar entre as linguagens mais adotadas — à frente das consolidadas Java e C++. </p>
+                </div>
+                <div class="item">
+                    
+                    <p>A sintaxe das linguagens de programação costuma ser um emaranhado de regras que, na maior parte dos casos, induzem o programador a erros. Mas isso não acontece com Python.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="testimonials">
+        <div class="headline">O que acham de nós</div>
+        <div id="testimonials-container">
+            <div class="testimonial">
+                <img src="/img/cella.jpeg" alt="" class="testimonial-image">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, autem dolores dolorum cumque
+                    voluptas eius. Eum quisquam illum error sapiente?</p>
+            </div>
+            <div class="testimonial">
+                <img src="/img/isa.jpeg" alt="" class="testimonial-image">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, autem dolores dolorum cumque
+                    voluptas
+                    eius. Eum quisquam illum error sapiente?</p>
+            </div>
+            <div class="testimonial">
+                <img src="/img/isa.jpeg" alt="" class="testimonial-image">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, autem dolores dolorum cumque
+                    voluptas
+                    eius. Eum quisquam illum error sapiente?</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- <section id="gallery">
+        <div class="headline">Galeria</div>
+        <div id="gallery-container">
+            <img src="/img/image-1.jpeg" alt="" class="gallery-image">
+            <img src="/img/image-2.jpeg" alt="" class="gallery-image">
+            <img src="/img/image-3.jpeg" alt="" class="gallery-image">
+            <img src="/img/image-4.jpeg" alt="" class="gallery-image">
+            <img src="/img/image-5.jpeg" alt="" class="gallery-image">
+            <img src="/img/image-6.jpeg" alt="" class="gallery-image">
+        </div>
+    </section> -->
+
+    <footer id="footer">
+        <p>Copyright 2020 - Todos os direitos reservados.</p>
+        <p>Feito por Phitonnow.</p>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Our JS file -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
